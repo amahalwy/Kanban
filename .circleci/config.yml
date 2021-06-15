@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          app-dir: client/
+          app-dir: /
       - run:
           command: npm run lint
           working_directory: client/

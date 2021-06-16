@@ -5,7 +5,6 @@ import { ICard } from '../../../interface';
 import { useKanban } from '../../../context/';
 import useColorTagStyles from '../shared/colorStyles';
 import useStyles from './useStyles';
-import { number } from 'yup';
 
 interface CardProps {
   index: number;

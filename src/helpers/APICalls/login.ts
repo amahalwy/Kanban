@@ -8,7 +8,7 @@ const login = async (email: string, password: string): Promise<IAuthApiData> => 
     credentials: 'include',
   };
   return await fetch(
-    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}/auth/login` : `/auth/login`,
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}auth/login` : `/auth/login`,
     fetchOptions,
   )
     .then((res) => res.json())

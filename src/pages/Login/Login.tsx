@@ -12,8 +12,9 @@ export default function Login(): JSX.Element {
   const { updateSnackBarMessage } = useSnackBar();
   const { sendToFirstBoard } = useKanban();
 
+  console.log(process.env);
+
   useEffect(() => {
-    console.log(loggedInUser);
     if (loggedInUser) sendToFirstBoard();
   }, [loggedInUser, sendToFirstBoard]);
 

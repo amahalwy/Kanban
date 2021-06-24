@@ -7,7 +7,7 @@ const getBoard = async (id: string): Promise<IBoardApiData> => {
     credentials: 'include',
   };
   return await fetch(
-    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}${id}` : `${id}`,
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards/${id}` : `${id}`,
     fetchOptions,
   )
     .then((res) => res.json())

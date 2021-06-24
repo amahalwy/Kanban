@@ -8,7 +8,7 @@ const createBoard = async (name: string): Promise<IBoardApiData> => {
     body: JSON.stringify({ name }),
   };
   return await fetch(
-    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}` : ``,
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards` : ``,
     fetchOptions,
   )
     .then((res) => res.json())

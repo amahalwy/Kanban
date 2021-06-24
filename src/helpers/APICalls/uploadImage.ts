@@ -6,7 +6,10 @@ const uploadImage = async (form: FormData): Promise<IUploadProfilePicture> => {
     body: form,
   };
 
-  return fetch(`/files/upload`, fetchOptions)
+  return fetch(
+    process.env.NODE_ENV === 'production' ? `${process.env.HOST_URL}/files/upload` : `/files/upload`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch(() => ({
       error: { message: 'Unable to connect to server. Please try again' },

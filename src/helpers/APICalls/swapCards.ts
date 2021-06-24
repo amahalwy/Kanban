@@ -12,7 +12,12 @@ const swapCards = async (
     body: JSON.stringify(batch),
   };
 
-  return await fetch(`columns/batch/swapCards`, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production'
+      ? `${process.env.HOST_URL}columns/batch/swapCards`
+      : `columns/batch/swapCards`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch((err) => ({
       error: { error: err, message: 'Unable to connect to server. Please try again' },

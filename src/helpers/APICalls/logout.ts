@@ -6,7 +6,7 @@ const logout = async (): Promise<IAuthApiData> => {
     credentials: 'include',
   };
   return await fetch(
-    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}/auth/logout` : `/auth/logout`,
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}auth/logout` : `/auth/logout`,
     fetchOptions,
   )
     .then((res) => res.json())

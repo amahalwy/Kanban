@@ -6,7 +6,7 @@ const loginWithCookies = async (): Promise<IAuthApiData> => {
     credentials: 'include',
   };
   return await fetch(
-    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}/auth/user` : `/auth/user`,
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}auth/user` : `/auth/user`,
     fetchOptions,
   )
     .then((res) => res.json())

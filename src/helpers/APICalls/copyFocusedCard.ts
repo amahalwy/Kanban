@@ -9,7 +9,7 @@ const copyFocusedCard = async (boardId: string, columnId: string, cardId: string
   };
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.HOST_URL}${boardId}/columns/${columnId}/cards/${cardId}/copyCard`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}${boardId}/columns/${columnId}/cards/${cardId}/copyCard`
       : `${boardId}/columns/${columnId}/cards/${cardId}/copyCard`,
     fetchOptions,
   )

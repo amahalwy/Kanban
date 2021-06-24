@@ -7,7 +7,10 @@ const createBoard = async (name: string): Promise<IBoardApiData> => {
     credentials: 'include',
     body: JSON.stringify({ name }),
   };
-  return await fetch(process.env.NODE_ENV === 'production' ? `${process.env.HOST_URL}` : ``, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}` : ``,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch(() => ({
       error: { message: 'Unable to connect to server. Please try again' },

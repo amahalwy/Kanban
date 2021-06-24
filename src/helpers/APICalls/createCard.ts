@@ -9,7 +9,7 @@ const createCard = async (title: string, tag: string, columnId: string, boardId:
   };
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.HOST_URL}${boardId}/columns/${columnId}/cards/`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}${boardId}/columns/${columnId}/cards/`
       : `${boardId}/columns/${columnId}/cards/`,
     fetchOptions,
   )

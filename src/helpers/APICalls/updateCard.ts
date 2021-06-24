@@ -14,7 +14,7 @@ const updateCard = async (
   };
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.HOST_URL}${boardId}/columns/${columnId}/cards/${cardId}`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}${boardId}/columns/${columnId}/cards/${cardId}`
       : `${boardId}/columns/${columnId}/cards/${cardId}`,
     fetchOptions,
   )

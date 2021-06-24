@@ -9,7 +9,7 @@ const moveFocusedCard = async (boardId: string, newColumnId: string, cardId: str
   };
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.HOST_URL}${boardId}/columns/${newColumnId}/cards/${cardId}/moveCard`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}${boardId}/columns/${newColumnId}/cards/${cardId}/moveCard`
       : `${boardId}/columns/${newColumnId}/cards/${cardId}/moveCard`,
     fetchOptions,
   )

@@ -9,7 +9,7 @@ const updateBoardColumns = async (boardId: string, columns: IColumn): Promise<IB
   };
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.HOST_URL}boards/${boardId}/updateColumns`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}boards/${boardId}/updateColumns`
       : `boards/${boardId}/updateColumns`,
     fetchOptions,
   )

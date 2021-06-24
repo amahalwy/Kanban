@@ -9,7 +9,7 @@ const deleteColumn = async (boardId: string, columnId: string): Promise<IBoardAp
   };
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.REACT_APP_HEROKU_HOST_URL}${boardId}/columns/${columnId}`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards/${boardId}/columns/${columnId}`
       : `${boardId}/columns/${columnId}`,
     fetchOptions,
   )

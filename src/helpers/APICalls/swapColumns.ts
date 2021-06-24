@@ -14,7 +14,7 @@ const swapColumns = async (
 
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.REACT_APP_HEROKU_HOST_URL}batch/swapColumns`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards/batch/swapColumns`
       : `batch/swapColumns`,
     fetchOptions,
   )

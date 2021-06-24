@@ -9,7 +9,7 @@ const createColumn = async (boardId: string, side: string, name: string): Promis
   };
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.REACT_APP_HEROKU_HOST_URL}${boardId}/columns/`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards/${boardId}/columns/`
       : `${boardId}/columns/`,
     fetchOptions,
   )

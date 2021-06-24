@@ -14,7 +14,7 @@ const swapCards = async (
 
   return await fetch(
     process.env.NODE_ENV === 'production'
-      ? `${process.env.HOST_URL}columns/batch/swapCards`
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}columns/batch/swapCards`
       : `columns/batch/swapCards`,
     fetchOptions,
   )

@@ -7,7 +7,7 @@ const uploadImage = async (form: FormData): Promise<IUploadProfilePicture> => {
   };
 
   return fetch(
-    process.env.NODE_ENV === 'production' ? `${process.env.HOST_URL}/files/upload` : `/files/upload`,
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}/files/upload` : `/files/upload`,
     fetchOptions,
   )
     .then((res) => res.json())

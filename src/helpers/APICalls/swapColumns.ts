@@ -13,7 +13,9 @@ const swapColumns = async (
   };
 
   return await fetch(
-    process.env.NODE_ENV === 'production' ? `${process.env.HOST_URL}batch/swapColumns` : `batch/swapColumns`,
+    process.env.NODE_ENV === 'production'
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}batch/swapColumns`
+      : `batch/swapColumns`,
     fetchOptions,
   )
     .then((res) => res.json())

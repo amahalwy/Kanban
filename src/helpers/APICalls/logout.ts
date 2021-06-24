@@ -5,7 +5,10 @@ const logout = async (): Promise<IAuthApiData> => {
     method: 'GET',
     credentials: 'include',
   };
-  return await fetch(`/auth/logout`, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production' ? `${process.env.HOST_URL}/auth/logout` : `/auth/logout`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch(() => ({
       error: { message: 'Unable to connect to server. Please try again' },

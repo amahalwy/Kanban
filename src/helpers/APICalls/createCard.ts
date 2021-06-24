@@ -7,7 +7,12 @@ const createCard = async (title: string, tag: string, columnId: string, boardId:
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   };
-  return await fetch(`${boardId}/columns/${columnId}/cards/`, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production'
+      ? `${process.env.HOST_URL}${boardId}/columns/${columnId}/cards/`
+      : `${boardId}/columns/${columnId}/cards/`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch(() => ({
       error: { message: 'Unable to connect to server. Please try again' },

@@ -12,7 +12,10 @@ const swapColumns = async (
     body: JSON.stringify(batch),
   };
 
-  return await fetch(`batch/swapColumns`, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production' ? `${process.env.HOST_URL}batch/swapColumns` : `batch/swapColumns`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch((err) => ({
       error: { error: err, message: 'Unable to connect to server. Please try again' },

@@ -12,7 +12,12 @@ const updateCard = async (
     credentials: 'include',
     body: JSON.stringify(data),
   };
-  return await fetch(`${boardId}/columns/${columnId}/cards/${cardId}`, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production'
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards/${boardId}/columns/${columnId}/cards/${cardId}`
+      : `${boardId}/columns/${columnId}/cards/${cardId}`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch((err) => ({
       error: { error: err, message: 'Unable to connect to server. Please try again' },

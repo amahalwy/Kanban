@@ -6,7 +6,10 @@ const getBoard = async (id: string): Promise<IBoardApiData> => {
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   };
-  return await fetch(`${id}`, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards/${id}` : `${id}`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch((err) => ({
       error: { error: err, message: 'Unable to connect to server. Please try again' },

@@ -16,7 +16,7 @@ export interface Batch<T> {
  * @param delay In ms how long the last invocation should wait before executing another.
  */
 export const useBatchUpdater = <T>(
-  callFunc: (changes: Batch<T>[]) => any,
+  callFunc: (changes: Batch<T>[]) => unknown,
   delay: number,
 ): [Batch<T>[], (batchChange: Batch<T>) => void] => {
   // changeset store for the invocation period.

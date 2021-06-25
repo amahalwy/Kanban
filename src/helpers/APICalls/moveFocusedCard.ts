@@ -7,7 +7,12 @@ const moveFocusedCard = async (boardId: string, newColumnId: string, cardId: str
     credentials: 'include',
     body: JSON.stringify({ newColumnId }),
   };
-  return await fetch(`${boardId}/columns/${newColumnId}/cards/${cardId}/moveCard`, fetchOptions)
+  return await fetch(
+    process.env.NODE_ENV === 'production'
+      ? `${process.env.REACT_APP_HEROKU_HOST_URL}dashboard/boards/${boardId}/columns/${newColumnId}/cards/${cardId}/moveCard`
+      : `${boardId}/columns/${newColumnId}/cards/${cardId}/moveCard`,
+    fetchOptions,
+  )
     .then((res) => res.json())
     .catch(() => ({
       error: { message: 'Unable to connect to server. Please try again' },

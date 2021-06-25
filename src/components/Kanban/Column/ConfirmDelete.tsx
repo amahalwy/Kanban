@@ -5,7 +5,6 @@ import {
   IconButton,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   Divider,
 } from '@material-ui/core/';
